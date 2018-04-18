@@ -1097,7 +1097,7 @@ void loadinganime(){
 		fclose(fp);
 		fprintf(stdout,"%s",buf);
 		if(i==47){
-			Sleep(880);	
+			Sleep(1880);	
 		}
 		Sleep(20);
 		gotoxy(1,1);	
