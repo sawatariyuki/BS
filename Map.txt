@@ -1,0 +1,96 @@
+#include<iostream>
+#include<stdio.h>
+#include<stdlib.h>
+#include<conio.h>
+#include<windows.h>
+#include<time.h>
+
+int cur_x = 2;
+int cur_y = 3;
+
+void goto(int x , int y){
+	
+}
+#define N 4
+#define M 5
+
+class Map{
+private:
+	int MAP[N][M] ;	
+public:
+	void init();
+	void show();
+	void update();
+};
+
+void Map::init(){
+	for(int i = 0 ; i< N ; i++)
+		for(int j = 0 ; j < M ; j++)
+		{
+			MAP[i][j] = 0;
+		};
+}
+
+void Map::show(){
+	//	printf ("µÃ·Ö£º%d\n",gre);
+	
+	printf ("\t©³");
+	for(int i = 0 ; i< M-1;i++){
+		printf ("©¥©¥©×");
+	}
+	printf ("©¥©¥©·\n");
+	
+	for(int j = 0; j < N-1;j++){
+		
+		printf ("\t©§");
+		for(int i = 0 ; i < M-1; i++){
+			printf ("    ©§");
+		}
+		printf("    ©§\n");
+		
+		printf("\t©Ç");
+		for(int i = 0 ; i < M-1; i++){
+			printf ("©¥©¥©ï");
+		}
+		printf("©¥©¥©Ï\n");
+	}
+	
+	printf ("\t©§");
+		for(int i = 0 ; i < M-1 ; i++){
+			printf ("    ©§");
+		}
+		printf("    ©§\n");
+	
+	printf("\t©»");
+	for(int i = 0 ; i < M-1 ; i++){
+		printf ("©¥©¥©ß");
+	}
+	printf("©¥©¥©¿\n");
+	
+}
+
+class Key{
+private:
+	char key;
+public:
+	void getKey(){
+		key = getch();
+	}	
+	void respones(){
+		if(key == 37){
+			gotoxy(1,2);
+		}
+	};
+};
+
+int main(){
+	
+	Map mymap;
+	mymap.init();
+	mymap.show();
+	gotoxy(cur_x , cur_y);
+	printf("¡ö");
+	return 0;
+}
+
+

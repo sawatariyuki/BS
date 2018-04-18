@@ -1,0 +1,25 @@
+class Position{
+public:
+	Position(){x=0;y=0;}
+	Position(int a,int b):x(a),y(b){}
+	
+	int getX(){return x;}
+	int getY(){return y;}
+private:
+	int x;
+	int y;
+};
+
+class Ship{
+public:
+	Ship(){length=0;width=0;}
+	Ship(int a,int b,Position xp):length(a),width(b),pos(xp){}
+
+	int getlength(){return length;}
+	int getwidth(){return width;}
+	int getX(){return pos.getX();}
+	int getY(){return pos.getY();}
+private:    
+	int length,width;
+	Position pos;
+};

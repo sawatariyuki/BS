@@ -1,0 +1,6 @@
+2015/7/1 2:13
+1.Againplay功能实现
+2.PlayCount次数统计
+3.UIcolorchange
+4.loginUI name方向键读入错误修正
+5.update ways of calcing bombs'number:	(totalhp/sizeofmap)*105.45+(√sizeofmap)*2.15

@@ -1,0 +1,345 @@
+#include<iostream>
+#include<stdio.h>
+#include<stdlib.h>
+#include<conio.h>
+#include<windows.h>
+#include<time.h>
+
+#define N 10
+#define M 10
+using namespace std;
+/*
+class Position{
+public:
+	Position(){x=0;y=0;}
+	Position(int a,int b):x(a),y(b){}
+	
+	int getX(){return x;}
+	int getY(){return y;}
+private:
+	int x;
+	int y;
+};
+*/
+class Ship{
+public:
+	Ship(){length=0;width=0;}
+	Ship(int a,int b):length(a),width(b){}
+//	Ship(int a,int b,Position xp):length(a),width(b),pos(xp){}
+
+	int getlength(){return length;}
+	int getwidth(){return width;}
+	
+//	int getX(){return pos.getX();}
+//	int getY(){return pos.getY();}
+private:    
+	int length,width;
+//	Position pos;
+};
+
+class Map{
+public:
+	int map[N][M] ;	//N hangshu   ;   M lieshu
+public:
+	void init();
+	void show();
+	void update();
+};
+
+void Map::init(){
+	for(int i = 0 ; i< N ; i++)
+		for(int j = 0 ; j < M ; j++)
+		{
+			map[i][j] = 0;
+		};
+}
+
+void Map::show(){
+	//	printf ("µÃ·Ö£º%d\n",gre);
+	
+	printf ("\t©³");
+	for(int i = 0 ; i< M-1;i++){
+		printf ("©¥©¥©×");
+	}
+	printf ("©¥©¥©·\n");
+	
+	for(int j = 0; j < N-1;j++){
+		
+		printf ("\t©§");
+		for(int i = 0 ; i < M-1; i++){
+			printf ("    ©§");
+		}
+		printf("    ©§\n");
+		
+		printf("\t©Ç");
+		for(int i = 0 ; i < M-1; i++){
+			printf ("©¥©¥©ï");
+		}
+		printf("©¥©¥©Ï\n");
+	}
+	
+	printf ("\t©§");
+		for(int i = 0 ; i < M-1 ; i++){
+			printf ("    ©§");
+		}
+		printf("    ©§\n");
+	
+	printf("\t©»");
+	for(int i = 0 ; i < M-1 ; i++){
+		printf ("©¥©¥©ß");
+	}
+	printf("©¥©¥©¿\n");
+	
+}
+Map mymap;
+Ship SS(2,1),DD(3,1),CL(4,1),BB(4,2);
+
+void initOfSS(int t){ // 0 heng  ;  1 shu
+	int px,py;        //N hangshu   ;   M lieshu
+	int flag=1,count;
+	
+	if(t==0){// heng
+	
+		while(flag!=2){
+			py = rand()%(M-SS.getlength()+1);  // 0~9  length=3  --> 0~7
+			px = rand()%(N-SS.getwidth()+1);
+			count = 0;
+			for(int i=py;i<py+SS.getlength();i++){
+				if(mymap.map[px][i]!=0){
+					count++;
+				}	
+			}
+			if(count == 0){
+				flag = 1;
+			}else{
+				flag = 0;
+			}
+			if(flag == 1){   //safe
+				for(int i=py;i<py+SS.getlength();i++){
+					mymap.map[px][i]=2;
+				}
+				flag = 2;
+			}		
+		}		
+	}else{//shu
+		while(flag!=2){
+			py = rand()%(M-SS.getwidth()+1); //N hangshu   ;   M lieshu
+			px = rand()%(N-SS.getlength()+1);  //  map[N][M]  0~9  length=3  --> 0~7
+			                  
+			count = 0;
+			for(int i=px;i<px+SS.getlength();i++){
+				if(mymap.map[i][py]!=0){
+					count++;
+				}	
+			}
+			if(count == 0){
+				flag = 1;
+			}else{
+				flag = 0;
+			}
+			if(flag == 1){   //safe
+				for(int i=px;i<px+SS.getlength();i++){
+					mymap.map[i][py]=2;
+				}
+				flag = 2;
+			}		
+		}		
+	}	
+}
+
+void initOfDD(int t){ // 0 heng  ;  1 shu
+	int px,py;        //N hangshu   ;   M lieshu
+	int flag=1,count;
+	
+	if(t==0){// heng
+	
+		while(flag!=2){
+			py = rand()%(M-DD.getlength()+1);  // 0~9  length=3  --> 0~7
+			px = rand()%(N-DD.getwidth()+1);
+			count = 0;
+			for(int i=py;i<py+DD.getlength();i++){
+				if(mymap.map[px][i]!=0){
+					count++;
+				}	
+			}
+			if(count == 0){
+				flag = 1;
+			}else{
+				flag = 0;
+			}
+			if(flag == 1){   //safe
+				for(int i=py;i<py+DD.getlength();i++){
+					mymap.map[px][i]=3;
+				}
+				flag = 2;
+			}		
+		}		
+	}else{//shu
+		while(flag!=2){
+			py = rand()%(M-DD.getwidth()+1); //N hangshu   ;   M lieshu
+			px = rand()%(N-DD.getlength()+1);  //  map[N][M]  0~9  length=3  --> 0~7
+			                  
+			count = 0;
+			for(int i=px;i<px+DD.getlength();i++){
+				if(mymap.map[i][py]!=0){
+					count++;
+				}	
+			}
+			if(count == 0){
+				flag = 1;
+			}else{
+				flag = 0;
+			}
+			if(flag == 1){   //safe
+				for(int i=px;i<px+DD.getlength();i++){
+					mymap.map[i][py]=3;
+				}
+				flag = 2;
+			}		
+		}		
+	}	
+}
+
+void initOfCL(int t){ // 0 heng  ;  1 shu
+	int px,py;        //N hangshu   ;   M lieshu
+	int flag=1,count;
+	
+	if(t==0){// heng
+	
+		while(flag!=2){
+			py = rand()%(M-CL.getlength()+1);  // 0~9  length=3  --> 0~7
+			px = rand()%(N-CL.getwidth()+1);
+			count = 0;
+			for(int i=py;i<py+CL.getlength();i++){
+				if(mymap.map[px][i]!=0){
+					count++;
+				}	
+			}
+			if(count == 0){
+				flag = 1;
+			}else{
+				flag = 0;
+			}
+			if(flag == 1){   //safe
+				for(int i=py;i<py+CL.getlength();i++){
+					mymap.map[px][i]=4;
+				}
+				flag = 2;
+			}		
+		}		
+	}else{//shu
+		while(flag!=2){
+			py = rand()%(M-CL.getwidth()+1); //N hangshu   ;   M lieshu
+			px = rand()%(N-CL.getlength()+1);  //  map[N][M]  0~9  length=3  --> 0~7
+			                  
+			count = 0;
+			for(int i=px;i<px+CL.getlength();i++){
+				if(mymap.map[i][py]!=0){
+					count++;
+				}	
+			}
+			if(count == 0){
+				flag = 1;
+			}else{
+				flag = 0;
+			}
+			if(flag == 1){   //safe
+				for(int i=px;i<px+CL.getlength();i++){
+					mymap.map[i][py]=4;
+				}
+				flag = 2;
+			}		
+		}		
+	}	
+}
+
+void initOfBB(int t){ // 0 heng  ;  1 shu
+	int px,py;        //N hangshu   ;   M lieshu
+	int flag=1,count;
+	
+	if(t==0){// heng
+	
+		while(flag!=2){
+			py = rand()%(M-BB.getlength()+1);  // 0~9  length=3  --> 0~7
+			px = rand()%(N-BB.getwidth()+1);    //--------------------------------
+			count = 0;
+			for(int i=py;i<py+BB.getlength();i++){
+				for(int j=px;j<px+BB.getwidth();j++){
+					if(mymap.map[j][i]!=0){
+						count++;
+					}	
+				}
+			}
+			if(count == 0){
+				flag = 1;
+			}else{
+				flag = 0;
+			}
+			if(flag == 1){   //safe
+				for(int i=py;i<py+BB.getlength();i++){
+					for(int j=px;j<px+BB.getwidth();j++){
+						mymap.map[j][i]=5;
+					}
+				}
+				flag = 2;
+			}		
+		}		
+	}else{//shu
+		while(flag!=2){
+			py = rand()%(M-BB.getwidth()+1); //N hangshu   ;   M lieshu
+			px = rand()%(N-BB.getlength()+1);  //  map[N][M]  0~9  length=3  --> 0~7
+			                  
+			count = 0;
+			for(int i=px;i<px+BB.getlength();i++){
+				for(int j=py;j<py+BB.getwidth();j++){
+					if(mymap.map[j][i]!=0){
+						count++;
+					}
+				}	
+			}
+			if(count == 0){
+				flag = 1;
+			}else{
+				flag = 0;
+			}
+			if(flag == 1){   //safe
+				for(int i=px;i<px+BB.getlength();i++){
+					for(int j=py;j<py+BB.getwidth();j++){
+						mymap.map[j][i]=5;
+					}	
+				}
+				flag = 2;
+			}		
+		}		
+	}	
+}
+
+
+void init(){
+	
+	mymap.init();
+//	mymap.show();
+	srand(time(NULL));
+
+		initOfBB( rand()%2 );
+		initOfCL( rand()%2 );
+		initOfDD( rand()%2 );
+		initOfSS( rand()%2 );
+		for(int i=0;i<N;i++){
+			for(int j=0;j<M-1;j++){
+				cout<<mymap.map[i][j]<<" ";
+			}
+			cout<<mymap.map[i][M-1]<<" \n";
+		}
+		
+}
+
+int main(){
+
+	init();
+
+
+	return 0;
+}
+
+
