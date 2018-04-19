@@ -70,6 +70,7 @@ public:
 public:
 	void init();
 	void show();
+	void show10();
 	void survivalShip();
 	void setscore(int s){score = s;}
 	int getscore(){return score;}
@@ -92,6 +93,7 @@ void Map::init(){
 			map[i][j] = 0;
 		}
 }
+
 void Map::show(){
 	printf ("\t©³");
 	for(int i = 0 ; i< M-1;i++){
@@ -126,6 +128,41 @@ void Map::show(){
 	}
 	printf("©¥©¥©¿\n");
 	
+}
+
+void Map::show10(){
+	printf ("\t©³");
+	for(int i = 0 ; i< M-1;i++){
+		printf ("©¥©¥©¥©¥©¥©×");
+	}
+	printf ("©¥©¥©¥©¥©¥©·\n");
+	
+	for(int j = 0; j < N-1;j++){
+		
+		printf ("\t©§");
+		for(int i = 0 ; i < M-1; i++){
+			printf ("     ©§");
+		}
+		printf("     ©§\n");
+		
+		printf("\t©Ç");
+		for(int i = 0 ; i < M-1; i++){
+			printf ("©¥©¥©¥©¥©¥©ï");
+		}
+		printf("©¥©¥©¥©¥©¥©Ï\n");
+	}
+	
+	printf ("\t©§");
+		for(int i = 0 ; i < M-1 ; i++){
+			printf ("     ©§");
+		}
+		printf("     ©§\n");
+	
+	printf("\t©»");
+	for(int i = 0 ; i < M-1 ; i++){
+		printf ("©¥©¥©¥©¥©¥©ß");
+	}
+	printf("©¥©¥©¥©¥©¥©¿\n");
 }
 
 void Map::survivalShip(){
@@ -688,6 +725,7 @@ void init(){
 	//                      17           0.265625  
 	mymap.init();
 	mymap.show();
+//	mymap.show10();
     gotoxy(cur_x , cur_y);
 	cout<<"¡è"<<endl;
 	
@@ -902,7 +940,7 @@ void judge(){
 }
 
 void UI(){
-	loadinganime();
+	// loadinganime();
 	playcount = 1;
 	char ch;
 	string name;	
