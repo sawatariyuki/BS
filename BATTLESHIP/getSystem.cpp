@@ -14,13 +14,13 @@ int getSystemName()
     if (dwMajor == 6 && dwMinor == 3)   //win 8.1  
     {  
         vname = "Microsoft Windows 8.1";  
-        printf("此电脑的版本为:%s\n", vname.c_str());
+//        printf("此电脑的版本为:%s\n", vname.c_str());
         return 8;  
     }  
     if (dwMajor == 10 && dwMinor == 0)  //win 10  
     {  
         vname = "Microsoft Windows 10";  
-        printf("此电脑的版本为:%s\n", vname.c_str());
+//        printf("此电脑的版本为:%s\n", vname.c_str());
         return 10;
     }  
     //下面判断不能Win Server，因为本人还未有这种系统的机子，暂时不给出  
@@ -104,17 +104,17 @@ int getSystemName()
         default:  
             vname = "未知操作系统";  
         }  
-        printf("此电脑的版本为:%s\n", vname.c_str());
+//        printf("此电脑的版本为:%s\n", vname.c_str());
     }  
     else  
-        printf("版本获取失败\n"); 
+//        printf("版本获取失败\n"); 
     // win10 返回 10， win7 返回 7 ，其他返回 0 
 	return systemNumber; 
 }  
   
-int main()
-{  
-    int systemName = getSystemName();
-    printf("The system number: %d\n", systemName);
-    system("pause");  
-}  
+//int main()
+//{  
+//    int systemName = getSystemName();
+//    printf("The system number: %d\n", systemName);
+//    system("pause");  
+//}  

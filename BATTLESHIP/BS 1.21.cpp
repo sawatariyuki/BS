@@ -12,6 +12,8 @@
 #define N 8
 #define M 8
 
+#include "getSystem.cpp"
+
 using namespace std;
 
 int cur_x,cur_y;
@@ -724,8 +726,12 @@ void init(){
 	numOfBombs = ((float)SS.hp+(float)DD.hp+(float)CL.hp+(float)BB.hp)/(N*M)*105.45+sqrt(N*M)*2.15;  				 //…Ë÷√bombs ˝¡ø	 
 	//                      17           0.265625  
 	mymap.init();
-	mymap.show();
-//	mymap.show10();
+	if( getSystemName() == 10) {
+		mymap.show10();	
+	} else {
+		mymap.show();
+	}
+
     gotoxy(cur_x , cur_y);
 	cout<<"°Ë"<<endl;
 	
