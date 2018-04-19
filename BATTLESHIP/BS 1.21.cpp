@@ -726,6 +726,7 @@ void init(){
 	numOfBombs = ((float)SS.hp+(float)DD.hp+(float)CL.hp+(float)BB.hp)/(N*M)*105.45+sqrt(N*M)*2.15;  				 //设置bombs数量	 
 	//                      17           0.265625  
 	mymap.init();
+	// 如果系统是win10 则打印win10适配的地图 
 	if( getSystemName() == 10) {
 		mymap.show10();	
 	} else {
