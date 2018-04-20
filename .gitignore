@@ -1,1 +1,7 @@
 *.exe
+*.ncb
+*.opt
+*.dsp
+*.plg
+*.dsw
+
