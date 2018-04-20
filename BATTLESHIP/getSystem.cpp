@@ -104,9 +104,9 @@ int getSystemName()
         default:  
             vname = "未知操作系统";  
         }  
-//        printf("此电脑的版本为:%s\n", vname.c_str());
+        //printf("此电脑的版本为:%s\n", vname.c_str());
     }  
-    else  
+//    else
 //        printf("版本获取失败\n"); 
     // win10 返回 10， win7 返回 7 ，其他返回 0 
 	return systemNumber; 

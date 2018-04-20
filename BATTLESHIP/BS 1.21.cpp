@@ -947,11 +947,16 @@ void judge(){
 }
 
 void UI(){
-	// loadinganime();
+	loadinganime();
 	playcount = 1;
 	char ch;
-	string name;	
-	ifstream inf("out\\Title1.poi");
+	string name;
+	ifstream inf;
+	if( getSystemName() == 10){
+		inf.open("out\\Title1.poi");
+	}else{	
+		inf.open("out\\Title1_win7.poi");
+	}
 	stringbuf sb;
 	inf>>&sb;
 	cout<<sb.str();
@@ -960,7 +965,11 @@ void UI(){
 	while( (ch=getch())!=13 );	
 	system("CLS");
 	
-	inf.open("out\\Title2.poi");
+	if( getSystemName() == 10){
+		inf.open("out\\Title2.poi");
+	}else{
+		inf.open("out\\Title2_win7.poi");
+	}
 	inf>>&sb;
 	cout<<sb.str();
 	inf.close();
@@ -968,7 +977,12 @@ void UI(){
 	while( (ch=getch())!=13 );	
 	system("CLS");
 	
-	inf.open("out\\Account.poi");
+	if( getSystemName() == 10){
+		inf.open("out\\Account.poi");
+	}else{
+		inf.open("out\\Account_win7.poi");
+	}
+	
 	inf>>&sb;
 	cout<<sb.str();	
 	inf.close();
@@ -1004,8 +1018,13 @@ void UI(){
 	mymap.setcurplayer(name);
 	HideCursor();	
 	system("CLS");
-	
-	inf.open("out\\Title3.poi");
+
+	if( getSystemName() == 10){
+		inf.open("out\\Title3.poi");
+	}else{
+		inf.open("out\\Title3_win7.poi");
+	}
+
 	inf>>&sb;
 	cout<<sb.str();	
 	inf.close();
